@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ManageUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,16 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('admin.include.app');
+    return view('admin.index');
 })->name('dashboard');
+
+Route::get('/user/logout',[ManageUserController::class,'logout'])->name('logout');
+
+
+Route::middleware(['auth:sanctum','role:super-admin'])->group(function(){
+    Route::resource('/user/management',ManageUserController::class);
+    
+
+});
+
+
