@@ -29,7 +29,7 @@
                         </a>
                         <ul class="nk-menu-sub">
                             <li class="nk-menu-item">
-                                <a href="#" class="nk-menu-link"><span class="nk-menu-text">Interior</span></a>
+                                <a href="{{route('service.interior')}}" class="nk-menu-link"><span class="nk-menu-text">Interior</span></a>
                             </li>
                             <li class="nk-menu-item">
                                 <a href="#" class="nk-menu-link"><span class="nk-menu-text">Construction</span></a>

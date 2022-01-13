@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -21,6 +22,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Super Admin',
             'email' => 'super-admin@mail.com',
             'password' => Hash::make('12345678'),
+            'created_at'=> Carbon::now(),
 
         ]);
         DB::table('users')->insert([
@@ -28,12 +30,14 @@ class DatabaseSeeder extends Seeder
             'name' => 'Adminstrator',
             'email' => 'admin@mail.com',
             'password' => Hash::make('12345678'),
+            'created_at'=> Carbon::now(),
 
         ]);
         DB::table('roles')->insert([
 
             'name' => 'super-admin',
             'guard_name' => 'web',
+            'created_at'=> Carbon::now(),
            
                 
         ]);
@@ -41,18 +45,21 @@ class DatabaseSeeder extends Seeder
 
             'name' => 'admin',
             'guard_name' => 'web',
+            'created_at'=> Carbon::now(),
            
                 
         ]);
         DB::table('categories')->insert([
 
             'category' => 'interior',
+            'created_at'=> Carbon::now(),
            
                 
         ]);
         DB::table('categories')->insert([
 
             'category' => 'construction',
+            'created_at'=> Carbon::now(),
            
                 
         ]);
