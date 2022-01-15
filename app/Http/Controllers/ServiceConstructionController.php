@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ServiceConstructionController extends Controller
 {
@@ -45,9 +46,9 @@ class ServiceConstructionController extends Controller
             'construction_image.required' => 'Please Select an Image',
         ]);
 
-        $serviceInterior = new SubCategory();
-        $serviceInterior->title = $request->title;
-        $serviceInterior->category_id = '2';
+        $service = new SubCategory();
+        $service->title = $request->title;
+        $service->category_id = '2';
 
 
         if ($request->hasFile('construction_image')) {
@@ -55,11 +56,9 @@ class ServiceConstructionController extends Controller
             $extension = $file->getClientOriginalExtension();
             $fileName = str_replace(' ', '_', $request->title).time() . 'construction_image.' . $extension;
             $file->move('construction/picture/', $fileName);
-            $serviceInterior->image ='/construction/picture/'. $fileName;
-        } else {
-            return "Please select image";
-        }
-        $serviceInterior->save();
+            $service->image = $fileName;
+        } 
+        $service->save();
 
         return redirect()->route('construction.index')->with('success','Information saved succesfully');
     }
@@ -83,7 +82,8 @@ class ServiceConstructionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $serviceEdit = SubCategory::find($id);
+        return view('admin.construction.edit',compact('serviceEdit'));
     }
 
     /**
@@ -95,7 +95,31 @@ class ServiceConstructionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $service = SubCategory::find($id);
+        $service->title = $request->title;
+       
+
+
+        if ($request->hasFile('construction_image'))
+         {
+            $oldfile ='construction/picture/'.$service->image;
+
+            if (File::exists($oldfile)) 
+            {
+               File::delete($oldfile);
+            }
+
+
+            $file = $request->file('construction_image');
+            $extension = $file->getClientOriginalExtension();
+            $fileName = str_replace(' ', '_', $request->title).time() . 'construction_image.' . $extension;
+            $file->move('construction/picture/', $fileName);
+            $service->image = $fileName;
+        } 
+        $service->update();
+
+        return redirect()->route('construction.index')->with('success','Information Update Succesfully');
     }
 
     /**
@@ -106,6 +130,8 @@ class ServiceConstructionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        SubCategory::find($id)->delete();
+        return redirect()->route('construction.index')->with('success','Deleted Succesfully');
     }
 }

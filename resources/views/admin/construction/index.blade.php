@@ -15,7 +15,7 @@
             <div class="card-inner ">
                 <h5 class="card-title float-left mt-1 ">Service Construction List</h5>
 
-                <a href="{{route('construction.create')}}" class="btn btn-success float-right"><em class="icon ni ni-file-docs"></em><span class="ml-1">Add Service Construction</span></a>
+                <a href="{{route('construction.create')}}" class="btn btn-primary float-right"><em class="icon ni ni-file-docs"></em><span class="ml-1">Add Service Construction</span></a>
 
             </div>
         </div>
@@ -39,30 +39,35 @@
 
                     <tr class="nk-tb-item">
 
-                        
+
                         <td class="nk-tb-col tb-col-mb">
                             <span class="tb-lead">{{$details->title}} </span>
                         </td>
 
                         <td class="nk-tb-col tb-col-md">
-                            <img src="{{$details->image}}" alt="no image"  class="img-thumbnail" style="height: 90px;width: 150px">
+                            <img src="/construction/picture/{{$details->image}}" alt="no image" class="img-thumbnail" style="height: 90px;width: 150px">
                         </td>
 
-                       
+
 
                         <td class="nk-tb-col nk-tb-col-tools">
-                            <ul class="nk-tb-actions gx-1">
+                            <ul class="nk-tb-actions gx-1 float-left">
                                 <li>
-                                    <a href="#" class="btn btn-trigger btn-icon" data-toggle="tooltip" data-placement="top" title="Edit">
+                                    <a href="{{route('construction.edit',$details->id)}}" class="btn btn-trigger btn-icon" data-toggle="tooltip" data-placement="top" title="Edit">
 
-                                        <em class="text-success icon ni ni-scissor"></em>
+                                        <em class="icon ni ni-edit-alt-fill "></em>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="btn btn-trigger btn-icon" data-toggle="tooltip" data-placement="top" title="Delete">
-                                        <em class="text-danger icon ni ni-trash"></em>
+                                    <form action="{{ route('construction.destroy', $details->id) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
 
-                                    </a>
+                                        <button type="submit" onclick="return confirm('Are you sure to delete !!');" class="btn btn-trigger btn-icon" data-toggle="tooltip" data-placement="top" title="Delete">
+                                            <em class="text-danger icon ni ni-trash"></em>
+
+                                        </button>
+                                    </form>
                                 </li>
 
 

@@ -60,7 +60,7 @@
 
             <div class="nk-block-des">
 
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#userModalForm">Add Users</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#userModalForm">Add Users</button>
 
             </div>
         </div>
@@ -111,7 +111,7 @@
                                 <li>
                                     <a href="{{url('user/management/'.$user->id.'/edit')}}" class="btn btn-trigger btn-icon" data-toggle="tooltip" data-placement="top" title="Edit">
 
-                                        <em class="text-success icon ni ni-scissor"></em>
+                                    <em class="icon ni ni-edit-alt-fill "></em>
                                     </a>
                                 </li>
                                 <li>
