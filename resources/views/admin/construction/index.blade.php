@@ -13,9 +13,9 @@
         <div class="card card-bordered">
 
             <div class="card-inner ">
-                <h5 class="card-title float-left mt-1 ">Service Interior List</h5>
+                <h5 class="card-title float-left mt-1 ">Service Construction List</h5>
 
-                <a href="{{route('interior.create')}}" class="btn btn-success float-right"><em class="icon ni ni-file-docs"></em><span class="ml-1">Add Service Interior</span></a>
+                <a href="{{route('construction.create')}}" class="btn btn-success float-right"><em class="icon ni ni-file-docs"></em><span class="ml-1">Add Service Construction</span></a>
 
             </div>
         </div>
@@ -35,7 +35,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($interiorDetails as $details)
+                    @foreach($constructionDetails as $details)
 
                     <tr class="nk-tb-item">
 

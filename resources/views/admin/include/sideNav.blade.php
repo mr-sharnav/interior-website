@@ -29,10 +29,10 @@
                         </a>
                         <ul class="nk-menu-sub">
                             <li class="nk-menu-item">
-                                <a href="{{route('service.interior')}}" class="nk-menu-link"><span class="nk-menu-text">Interior</span></a>
+                                <a href="{{route('interior.index')}}" class="nk-menu-link"><span class="nk-menu-text">Interior</span></a>
                             </li>
                             <li class="nk-menu-item">
-                                <a href="#" class="nk-menu-link"><span class="nk-menu-text">Construction</span></a>
+                                <a href="{{route('construction.index')}}" class="nk-menu-link"><span class="nk-menu-text">Construction</span></a>
                             </li>
                         </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->

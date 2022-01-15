@@ -99,11 +99,11 @@
                         </td>
 
                         <td class="nk-tb-col tb-col-md">
-                            <span>{{$user->phone}} </span>
+                            <span class="tb-lead">{{$user->phone}} </span>
                         </td>
 
                         <td class="nk-tb-col tb-col-lg">
-                            <span> {{Carbon\Carbon::parse($user->created_at)->diffForhumans() }} </span>
+                            <span class="tb-lead"> {{Carbon\Carbon::parse($user->created_at)->diffForhumans() }} </span>
                         </td>
 
                         <td class="nk-tb-col nk-tb-col-tools">

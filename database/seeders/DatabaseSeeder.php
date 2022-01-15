@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
 
             'name' => 'Super Admin',
-            'email' => 'super-admin@mail.com',
-            'password' => Hash::make('12345678'),
+            'email' => 'admin@abasas.tech',
+            'password' => Hash::make('1234'),
             'created_at'=> Carbon::now(),
 
         ]);
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
 
             'name' => 'Adminstrator',
             'email' => 'admin@mail.com',
-            'password' => Hash::make('12345678'),
+            'password' => Hash::make('1234'),
             'created_at'=> Carbon::now(),
 
         ]);
@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
 
             'name' => 'super-admin',
             'guard_name' => 'web',
-            'created_at'=> Carbon::now(),
+            
            
                 
         ]);
@@ -45,21 +45,20 @@ class DatabaseSeeder extends Seeder
 
             'name' => 'admin',
             'guard_name' => 'web',
-            'created_at'=> Carbon::now(),
+           
            
                 
         ]);
         DB::table('categories')->insert([
 
             'category' => 'interior',
-            'created_at'=> Carbon::now(),
+           
            
                 
         ]);
         DB::table('categories')->insert([
 
             'category' => 'construction',
-            'created_at'=> Carbon::now(),
            
                 
         ]);

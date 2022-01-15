@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
-class ServiceInteriorController extends Controller
+class ServiceConstructionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class ServiceInteriorController extends Controller
      */
     public function index()
     {
-        $interiorDetails = SubCategory::where('category_id','1')->get();
-        
-        return view('admin.interior.index', compact('interiorDetails'));
+    $constructionDetails = SubCategory::where('category_id','2')->get();
+    return view('admin.construction.index',compact('constructionDetails'));
     }
 
     /**
@@ -26,10 +25,7 @@ class ServiceInteriorController extends Controller
      */
     public function create()
     {
-     
-
-
-        return view('admin.interior.create');
+        return view('admin.construction.create');
     }
 
     /**
@@ -40,32 +36,32 @@ class ServiceInteriorController extends Controller
      */
     public function store(Request $request)
     {
+        
         $this->validate($request, [
             'title'    => 'required',
-            'interior_image' => 'required',
+            'construction_image' => 'required',
         ],[
             'title.required'     => 'Please Enter Project Title',
-            'interior_image.required' => 'Please Select an Image',
+            'construction_image.required' => 'Please Select an Image',
         ]);
 
         $serviceInterior = new SubCategory();
         $serviceInterior->title = $request->title;
-        $serviceInterior->category_id = '1';
+        $serviceInterior->category_id = '2';
 
 
-        if ($request->hasFile('interior_image')) {
-            $file = $request->file('interior_image');
+        if ($request->hasFile('construction_image')) {
+            $file = $request->file('construction_image');
             $extension = $file->getClientOriginalExtension();
-            $fileName = str_replace(' ', '_', $request->title).time() . 'interior_image.' . $extension;
-            $file->move('interior/picture/', $fileName);
-            $serviceInterior->image ='/interior/picture/'. $fileName;
+            $fileName = str_replace(' ', '_', $request->title).time() . 'construction_image.' . $extension;
+            $file->move('construction/picture/', $fileName);
+            $serviceInterior->image ='/construction/picture/'. $fileName;
         } else {
             return "Please select image";
         }
         $serviceInterior->save();
 
-        return redirect()->route('interior.index')->with('success','Information saved succesfully');
-       
+        return redirect()->route('construction.index')->with('success','Information saved succesfully');
     }
 
     /**
@@ -112,5 +108,4 @@ class ServiceInteriorController extends Controller
     {
         //
     }
-   
 }

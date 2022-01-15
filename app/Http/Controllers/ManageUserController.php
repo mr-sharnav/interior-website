@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\UserMail;
 use App\Models\ManageUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Mail;
+
 
 class ManageUserController extends Controller
 {
@@ -59,6 +60,16 @@ class ManageUserController extends Controller
         $addUser->phone = $request->phone;
         $addUser->password = Hash::make($request->password);
         $addUser->save();
+
+        $newUser =[
+
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+
+            ];
+            Mail::to($request->email)->send(new UserMail($newUser));
+
         return redirect()->back();
          
     }
@@ -111,17 +122,15 @@ class ManageUserController extends Controller
      * @param  \App\Models\ManageUser  $manageUser
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(ManageUser  $manageUser)
     {
+        $manageUser->delete();
+        return redirect()->route('management.index');
         
     }
     public function logout(){
         Auth::logout();
         return redirect()->Route('login');
     }
-    public function DeleteUser($id){
-        $deleteUser = User::find($id)->delete();
-        return Redirect(route('management.index'));
-
-    }
+    
 }
