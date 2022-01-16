@@ -42,7 +42,7 @@
 
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-lg btn-success">Save Informations</button>
+                        <button type="submit" class="btn btn-lg btn-primary">Save Informations</button>
                     </div>
                 </form>
             </div>
@@ -52,7 +52,12 @@
 </div>
 <!--Add User Modal From End -->
 
-
+@if($message = Session::get('success'))
+<div class="alert alert-info text-center">
+    <button type="button" class="close" data-dismiss="alert">x</button>
+    <strong class="text-center">{{ $message }}</strong>
+</div>
+@endif
 
 <div class="nk-block nk-block-lg">
     <div class="nk-block-head">
@@ -115,10 +120,15 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('user/management/delete/'.$user->id)}}" class="btn btn-trigger btn-icon" data-toggle="tooltip" data-placement="top" title="Delete">
-                                        <em class="text-danger icon ni ni-trash"></em>
+                                <form action="{{ route('management.destroy', $user->id) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
 
-                                    </a>
+                                        <button type="submit" onclick="return confirm('Are you sure to delete !!');" class="btn btn-trigger btn-icon" data-toggle="tooltip" data-placement="top" title="Delete">
+                                            <em class="text-danger icon ni ni-trash"></em>
+
+                                        </button>
+                                    </form>
                                 </li>
 
 

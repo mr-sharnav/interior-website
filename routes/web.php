@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ManageUserController;
+use App\Http\Controllers\ProjectConstructionController;
+use App\Http\Controllers\ProjectInteriorController;
 use App\Http\Controllers\ServiceConstructionController;
 use App\Http\Controllers\ServiceInteriorController;
 use Illuminate\Support\Facades\Route;
@@ -35,5 +37,7 @@ Route::middleware(['auth:sanctum', 'role:super-admin|admin'])->group(function ()
 
 
     Route::resource('/service/interior', ServiceInteriorController::class);
-    Route::resource('service/construction',ServiceConstructionController::class);
+    Route::resource('/service/construction',ServiceConstructionController::class);
+    Route::resource('/construction/project',ProjectConstructionController::class);
+    Route::resource('/projectinterior',ProjectInteriorController::class);
 });

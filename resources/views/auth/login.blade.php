@@ -28,14 +28,19 @@
                 <div class="nk-content ">
                     <div class="nk-block nk-block-middle nk-auth-body  wide-xs">
                         <div class="brand-logo pb-4 text-center">
-                           
+                            @if (session('status'))
+                            <div class="mb-4 font-medium text-sm text-green-600">
+                                {{ session('status') }}
+                            </div>
+                            @endif
+
                         </div>
                         <div class="card card-bordered">
                             <div class="card-inner card-inner-lg">
                                 <div class="nk-block-head">
                                     <div class="nk-block-head-content">
                                         <h4 class="nk-block-title">Sign-In</h4>
-                                       
+
                                     </div>
                                 </div>
                                 <form method="POST" action="{{ route('login') }}">
@@ -49,7 +54,7 @@
                                     <div class="form-group">
                                         <div class="form-label-group">
                                             <label class="form-label" for="password">Password</label>
-                                            
+
                                         </div>
                                         <div class="form-control-wrap">
                                             <a href="#" class="form-icon form-icon-right passcode-switch" data-target="password">
@@ -63,8 +68,8 @@
                                         <button class="btn btn-lg btn-primary btn-block">Sign in</button>
                                     </div>
                                 </form>
-                                
-                                
+
+
                             </div>
                         </div>
                     </div>
@@ -72,7 +77,7 @@
                         <div class="container wide-lg">
                             <div class="row g-3">
                                 <div class="col-lg-6 order-lg-last">
-                                    
+
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="nk-block-content text-center text-lg-left">

@@ -112,6 +112,9 @@ class ManageUserController extends Controller
         $updateUser->name = $request->name;
         $updateUser->email = $request->email;
         $updateUser->phone = $request->phone;
+        if (!$request->password == NULL) {
+        $updateUser->password = Hash::make($request->password);
+        }
         $updateUser->update();
         return Redirect(route('management.index'));
     }
@@ -122,10 +125,11 @@ class ManageUserController extends Controller
      * @param  \App\Models\ManageUser  $manageUser
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ManageUser  $manageUser)
+    public function destroy($id)
     {
-        $manageUser->delete();
-        return redirect()->route('management.index');
+        User::find($id)->delete();
+        return redirect()->route('management.index')->with('success','Deleted Succesfully');
+ 
         
     }
     public function logout(){

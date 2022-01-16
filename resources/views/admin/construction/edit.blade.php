@@ -45,7 +45,7 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-lg btn-primary">Save Informations</button>
+                <button type="submit" class="btn btn-lg btn-primary">Upddate Informations</button>
             </div>
         </form>
     </div>

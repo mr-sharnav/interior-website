@@ -44,10 +44,10 @@
                         </a>
                         <ul class="nk-menu-sub">
                             <li class="nk-menu-item">
-                                <a href="#" class="nk-menu-link"><span class="nk-menu-text">Interior</span></a>
+                                <a href="{{route('projectinterior.index')}}" class="nk-menu-link"><span class="nk-menu-text">Interior</span></a>
                             </li>
                             <li class="nk-menu-item">
-                                <a href="#" class="nk-menu-link"><span class="nk-menu-text">Construction</span></a>
+                                <a href="{{route('project.index')}}" class="nk-menu-link"><span class="nk-menu-text">Construction</span></a>
                             </li>
                         </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->

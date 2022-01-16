@@ -16,4 +16,11 @@ class Project extends Model
         'description',
         'short_description',
     ];
+
+    public function GetServiceTitle()
+    {
+     return $this->hasOne(SubCategory::class, 'id', 'subcategory_id');
+    }
+
+    
 }

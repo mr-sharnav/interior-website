@@ -13,5 +13,7 @@ class SubCategory extends Model
         'title',
         'image',
     ];
+    
+   
 }
 

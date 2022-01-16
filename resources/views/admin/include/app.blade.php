@@ -12,7 +12,7 @@
     <!-- Page Title  -->
     <title>Sales Dashboard | DashLite Admin Template</title>
     <!-- StyleSheets  -->
-    
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
  
     <link rel="stylesheet" href="{{asset('theme/backend/assets/css/dashlite.css?ver=2.4.0')}}">
     <link id="skin-default" rel="stylesheet" href="{{asset('theme/backend/assets/css/theme.css?ver=2.4.0')}}">
@@ -56,6 +56,7 @@
     <script src="{{asset('theme/backend/assets/js/bundle.js?ver=2.4.0')}}"></script>
     <script src="{{asset('theme/backend/assets/js/scripts.js?ver=2.4.0')}}"></script>
     <script src="{{asset('theme/backend/assets/js/charts/gd-default.js?ver=2.4.0')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
     @yield('js')
 </body>
