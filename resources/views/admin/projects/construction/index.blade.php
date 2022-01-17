@@ -30,6 +30,8 @@
                         <th class="nk-tb-col"><span class="sub-text">Title</span></th>
                         <th class="nk-tb-col tb-col-mb"><span class="sub-text">Service</span></th>
                         <th class="nk-tb-col tb-col-mb"><span class="sub-text">Short Description</th>
+                        <th class="nk-tb-col tb-col-mb"><span class="sub-text">Pictures</th>
+
                         <th class="nk-tb-col tb-col-lg"><span class="sub-text">Action</span></th>
 
                         </th>
@@ -53,7 +55,12 @@
                             <span class="tb-lead">{{$details->short_description}}</span>
                         </td>
 
+                       <td class="nk-tb-col tb-col-md">
+                            <a href="{{route('project-construction-image.index')}}?constructionid={{$details->id}}&title={{$details->title}}" class="btn btn-trigger btn-icon" data-toggle="tooltip" data-placement="top" title="Upload Image">
 
+                            <em class="icon ni ni-img"></em></em>Manage Image
+                            </a>
+                        </td>
 
 
                         <td class="nk-tb-col nk-tb-col-tools">
@@ -65,7 +72,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <form action="{{ route('project.destroy', $details->id) }}" method="post">
+                                    <form action="{{ route('project-construction-image.destroy', $details->id) }}" method="post">
                                         @csrf
                                         @method('DELETE')
 

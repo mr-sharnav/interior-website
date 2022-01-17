@@ -5,9 +5,8 @@
             <a href="#" class="nk-nav-compact nk-quick-nav-icon d-none d-xl-inline-flex" data-target="sidebarMenu"><em class="icon ni ni-menu"></em></a>
         </div>
         <div class="nk-sidebar-brand">
-            <a href="{{route('dashboard')}}" class="logo-link nk-sidebar-logo">
-                <img class="logo-light logo-img" src="{{asset('theme/backend/images/logo.png')}}" srcset="{{asset('theme/backend/images/logo2x.png 2x')}}" alt="logo">
-                <img class="logo-dark logo-img" src="{{asset('theme/backend/images/logo-dark.png')}}" srcset="{{asset('theme/backend/images/logo-dark2x.png')}}" alt="logo-dark">
+            <a href="{{route('dashboard')}}" class="">
+               <h3 class="text-white">Dashboard</h3>
             </a>
         </div>
     </div><!-- .nk-sidebar-element -->
@@ -20,7 +19,7 @@
                         <h6 class="overline-title text-primary-alt">Service Area</h6>
                     </li>
 
-                    
+
 
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">

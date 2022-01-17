@@ -10,7 +10,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="{{asset('theme/backend/images/favicon.png')}}">
     <!-- Page Title  -->
-    <title>Sales Dashboard | DashLite Admin Template</title>
+    <title>Login</title>
     <!-- StyleSheets  -->
 
 
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="nk-block-content text-center text-lg-left">
-                                        <p class="text-soft">&copy; 2019 CryptoLite. All Rights Reserved.</p>
+                                        
                                     </div>
                                 </div>
                             </div>

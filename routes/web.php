@@ -2,10 +2,14 @@
 
 use App\Http\Controllers\ManageUserController;
 use App\Http\Controllers\ProjectConstructionController;
+use App\Http\Controllers\ProjectConstructionImageController;
+use App\Http\Controllers\ProjectImageController;
 use App\Http\Controllers\ProjectInteriorController;
 use App\Http\Controllers\ServiceConstructionController;
 use App\Http\Controllers\ServiceInteriorController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +26,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () 
+{
+    // ASSIGNNG A ROLE IF NOT EXISTS
+    $user = Auth::user();
+   if( $user->hasAnyRole('super-admin', 'admin')){
     return view('admin.index');
+   }else{
+    $user->assignRole('admin');
+    return view('admin.index');
+   }
+
 })->name('dashboard');
 
 Route::get('/user/logout', [ManageUserController::class, 'logout'])->name('logout');
@@ -40,4 +53,6 @@ Route::middleware(['auth:sanctum', 'role:super-admin|admin'])->group(function ()
     Route::resource('/service/construction',ServiceConstructionController::class);
     Route::resource('/construction/project',ProjectConstructionController::class);
     Route::resource('/projectinterior',ProjectInteriorController::class);
+    Route::resource('/project-image',ProjectImageController::class);
+    Route::resource('/project-construction-image',ProjectConstructionImageController::class);
 });

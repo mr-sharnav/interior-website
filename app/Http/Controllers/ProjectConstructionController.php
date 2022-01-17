@@ -17,8 +17,7 @@ class ProjectConstructionController extends Controller
     {
         $detail = Project::where('category_id', '2')->get();
 
-        
-        return view('admin.projects.construction.index', compact('detail'));
+         return view('admin.projects.construction.index', compact('detail'));
     }
 
     /**

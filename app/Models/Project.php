@@ -17,10 +17,15 @@ class Project extends Model
         'short_description',
     ];
 
-    public function GetServiceTitle()
-    {
-     return $this->hasOne(SubCategory::class, 'id', 'subcategory_id');
-    }
+    // public function SubCategory()
+    // {
+    //  return $this->belongsTo(SubCategory::class);
+    // }
+
+    // public function ProjectImage()
+    // {
+    //  return $this->hasMany(ProjectImage::class,'id','project_id');
+    // }
 
     
 }

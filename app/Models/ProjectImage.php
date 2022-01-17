@@ -12,4 +12,5 @@ class ProjectImage extends Model
         'project_id',
         'image',
     ];
+   
 }

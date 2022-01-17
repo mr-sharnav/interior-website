@@ -15,6 +15,7 @@ class ProjectInteriorController extends Controller
      */
     public function index()
     {
+ 
 
         $detail = Project::where('category_id', '1')->get();
         return view('admin.projects.interior.index', compact('detail'));

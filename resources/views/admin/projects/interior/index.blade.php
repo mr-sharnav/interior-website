@@ -30,6 +30,7 @@
                         <th class="nk-tb-col"><span class="sub-text">Title</span></th>
                         <th class="nk-tb-col tb-col-mb"><span class="sub-text">Service</span></th>
                         <th class="nk-tb-col tb-col-mb"><span class="sub-text">Short Description</th>
+                        <th class="nk-tb-col tb-col-mb"><span class="sub-text">Pictures</th>
                         <th class="nk-tb-col tb-col-lg"><span class="sub-text">Action</span></th>
 
                         </th>
@@ -48,14 +49,16 @@
                         <td class="nk-tb-col tb-col-md">
                             <span class="tb-lead">{{$details->subcategory_id}}</span>
                         </td>
-                        
+
                         <td class="nk-tb-col tb-col-md">
                             <span class="tb-lead">{{$details->short_description}}</span>
                         </td>
+                        <td class="nk-tb-col tb-col-md">
+                            <a href="{{route('project-image.index')}}?projectid={{$details->id}}&title={{$details->title}}" class="btn btn-trigger btn-icon" data-toggle="tooltip" data-placement="top" title="Upload Image">
 
-
-
-
+                            <em class="icon ni ni-img"></em></em>Manage Image
+                            </a>
+                        </td>
                         <td class="nk-tb-col nk-tb-col-tools">
                             <ul class="nk-tb-actions gx-1 float-left">
                                 <li>
